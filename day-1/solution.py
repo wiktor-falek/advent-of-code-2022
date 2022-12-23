@@ -8,9 +8,10 @@ with open("input.txt", "r") as f:
       elves.append(food_items)
       food_items = []
     else:
-      food_items.append(line.replace("\n", ""))
+      item = int(line.replace("\n", ""))
+      food_items.append(item)
 
-  elves = [sum(map(lambda x: int(x), elf)) for elf in elves]
+  elves = [sum(elf) for elf in elves]
   part_1 = max(elves)
   part_2 = sum(sorted(elves, reverse=True)[0:3])
 
